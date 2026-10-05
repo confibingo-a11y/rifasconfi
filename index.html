@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gran Rifa EK XPRESS 200S - Confiautov</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Fondo de Pantalla con la Motocicleta y Capa de Brillo -->
+    <div class="bg-bike-overlay"></div>
+    <div class="bg-gradient-glow"></div>
+
+    <!-- Navegación Superior -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="brand-logo">
+                <i class="fa-solid fa-motorcycle"></i> CONFIAUTOV
+            </a>
+            
+            <div class="nav-links">
+                <a href="#inicio" class="nav-btn"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="#verificador" class="nav-btn"><i class="fa-solid fa-ticket"></i> Verificador</a>
+                <a href="https://www.facebook.com/marketplace/profile/100008211696465/?ref=permalink&mibextid=dXMIcH" target="_blank" class="nav-btn">
+                    <i class="fa-brands fa-facebook"></i> Facebook
+                </a>
+                <!-- Botón Interruptor de Tema (Oscuro / Claro) -->
+                <button id="theme-toggle" class="nav-btn theme-btn" aria-label="Cambiar tema">
+                    <i class="fa-solid fa-sun" id="theme-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal / Hero Header -->
+    <main id="inicio" class="hero-container">
+        <div class="glass-card hero-card">
+            
+            <div class="badge-container">
+                <span class="neon-badge"><i class="fa-solid fa-fire"></i> ¡GRAN RIFA EXCLUSIVA!</span>
+            </div>
+
+            <h1 class="main-title">GÁNATE UNA <br><span class="highlight-text">EK XPRESS 200S</span></h1>
+            
+            <!-- Fotografía de la Moto en la Cabeza de la Página -->
+            <div class="hero-bike-header-image">
+                <img 
+                    src="EMPIRE.jpg" 
+                    onerror="this.onerror=null; this.src='https://www.empirekeeway.com/wp-content/uploads/2023/08/XPRESS-200S-blanca.png';" 
+                    alt="Empire Keeway EK XPRESS 200S" 
+                    class="hero-bike-img"
+                >
+            </div>
+
+            <p class="hero-description">
+                Tu momento de estrenar sobre dos ruedas ha llegado. ¡Un diseño agresivo, potente y cero kilómetros puede ser tuyo hoy mismo!
+            </p>
+
+            <!-- Ticket Virtual Neón -->
+            <div class="ticket-neon-box">
+                <div class="ticket-header">
+                    <span><i class="fa-solid fa-ticket"></i> TICKET DE SUERTE</span>
+                    <span class="luck-tag">✨ ¡Confía y Gana!</span>
+                </div>
+                <div class="ticket-body">
+                    <div class="price-tag">
+                        <small>Costo del boleto</small>
+                        <h2>$20 <span class="currency">USD</span></h2>
+                    </div>
+                    <div class="draw-info">
+                        <p><i class="fa-solid fa-calendar-check"></i> <strong>Sorteo:</strong> 15 de Noviembre</p>
+                        <p><i class="fa-solid fa-trophy"></i> <strong>Lotería:</strong> Súper Gana (7:00 PM)</p>
+                        <p><i class="fa-solid fa-hashtag"></i> <strong>Modalidad:</strong> Últimos 2 dígitos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de Acción WhatsApp -->
+            <div class="action-buttons-group">
+                <a href="https://wa.me/584125974816?text=Hola%20Cristian,%20quiero%20comprar%20un%20ticket%20para%20la%20rifa%20de%20la%20EK%20XPRESS%20200S" class="btn-whatsapp-glow" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> ¡COMPRAR MI TICKET AHORA!
+                </a>
+                <a href="https://wa.me/584125974816?text=Hola%20Cristian,%20tengo%20una%20duda%20sobre%20la%20rifa" class="btn-whatsapp-outline" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Consultar a Cristian por WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Sección Verificador de Ticket de 2 dígitos (00 - 99) -->
+    <section id="verificador" class="checker-section">
+        <div class="glass-card checker-card">
+            <h2 class="section-title"><i class="fa-solid fa-magnifying-glass"></i> CONSULTA TU NÚMERO FAVORITO</h2>
+            <p class="section-subtitle">Escribe tu número de la suerte (00 al 99) para consultar disponibilidad directamente por WhatsApp</p>
+
+            <form action="https://wa.me/584125974816" method="get" target="_blank" class="ticket-search-form">
+                <div class="input-container">
+                    <span class="input-prefix">#</span>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        placeholder="Ej: 07" 
+                        pattern="[0-9]{2}" 
+                        maxlength="2" 
+                        minlength="2" 
+                        required 
+                        title="Introduce un número de 2 dígitos entre el 00 y el 99"
+                        class="ticket-input"
+                    >
+                </div>
+                <button type="submit" class="btn-whatsapp-glow search-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Consultar Disponibilidad
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección Tarjeta de la Motocicleta Oficial -->
+    <section class="bike-details-section">
+        <div class="glass-card bike-official-card">
+            
+            <div class="bike-image-container">
+                <img 
+                    src="EMPIRE.jpg" 
+                    onerror="this.onerror=null; this.src='https://www.empirekeeway.com/wp-content/uploads/2023/08/XPRESS-200S-blanca.png';" 
+                    alt="Motocicleta Empire Keeway EK XPRESS 200S" 
+                    class="bike-image"
+                >
+            </div>
+
+            <div class="bike-card-header">
+                <span class="official-badge"><i class="fa-solid fa-certificate"></i> MODELO OFICIAL DEL PREMIO</span>
+                <h2 class="bike-title">Empire Keeway EK XPRESS 200S</h2>
+                <p class="bike-subtitle">Potencia, tecnología y resistencia diseñada para el terreno exigente.</p>
+            </div>
+
+            <!-- Grid de Características -->
+            <div class="bike-specs-grid">
+                <div class="spec-item">
+                    <i class="fa-solid fa-gauge-high spec-icon"></i>
+                    <div>
+                        <h4>Motor</h4>
+                        <p>200 cc Monocilíndrico</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <i class="fa-solid fa-bolt spec-icon"></i>
+                    <div>
+                        <h4>Potencia</h4>
+                        <p>Rendimiento Deportivo S</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <i class="fa-solid fa-gas-pump spec-icon"></i>
+                    <div>
+                        <h4>Consumo</h4>
+                        <p>Alta Eficiencia de Combustible</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <i class="fa-solid fa-shield-halved spec-icon"></i>
+                    <div>
+                        <h4>Garantía</h4>
+                        <p>0 KM Directa de Agencia</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bike-card-footer flex-footer">
+                <a href="https://wa.me/584125974816?text=Hola%20Cristian,%20quiero%20informacion%20para%20participar%20por%20la%20EK%20XPRESS%20200S" class="btn-whatsapp-glow" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Participar por la Moto
+                </a>
+                <a href="https://www.empirekeeway.com/productos/ek-xpress-200s/" target="_blank" class="btn-secondary-glow">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Ficha Técnica
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Motivacional -->
+    <section class="motivation-section">
+        <div class="glass-card quote-card">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <h2>"Las oportunidades no suceden por casualidad, se crean cuando te atreves a intentar."</h2>
+            <p>Un pequeño paso de $20 puede ser el comienzo de una gran historia sobre ruedas.</p>
+            
+            <a href="https://wa.me/584125974816?text=Hola%20Cristian,%20quiero%20reservar%20mi%20numero%20de%20la%20rifa" class="btn-whatsapp-glow" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Reservar Número Directo por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Enlaces a Otras Plataformas -->
+    <section class="links-section">
+        <div class="links-container">
+            <a href="https://cristianantoniocortezpacheco-rgb.github.io/confiautov/" target="_blank" class="glass-card link-box">
+                <i class="fa-solid fa-car link-icon"></i>
+                <div>
+                    <h4>ConfiAutoV</h4>
+                    <p>Visita mi portal oficial de venta de vehículos.</p>
+                </div>
+            </a>
+
+            <a href="https://www.facebook.com/marketplace/profile/100008211696465/?ref=permalink&mibextid=dXMIcH" target="_blank" class="glass-card link-box">
+                <i class="fa-brands fa-facebook link-icon"></i>
+                <div>
+                    <h4>Perfil de Facebook</h4>
+                    <p>Revisa mi perfil, reputación y catálogo.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Pie de página (Footer) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="personal-motto">
+                "Mi compromiso es brindarte transparencia, confianza y la oportunidad de alcanzar tus sueños sobre ruedas."
+            </p>
+            <div class="divider"></div>
+            <p class="manager-info">
+                Organizador oficial de la rifa: <strong>Cristian Cortez</strong>
+            </p>
+            <p class="copyright">
+                &copy; 2026 Cristian Cortez — Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script para funcionalidad de cambio de tema (Claro / Oscuro) -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            
+            if (document.body.classList.contains('light-theme')) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+    </script>
+
+</body>
+</html>

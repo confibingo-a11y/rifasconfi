@@ -1,0 +1,657 @@
+/* ==========================================================================
+   VARIABLES Y CONFIGURACIÓN GLOBAL (MODO OSCURO Y MODO CLARO)
+   ========================================================================== */
+:root {
+    --bg-main: #0B0E14;
+    --card-bg: rgba(22, 28, 38, 0.75);
+    --card-border: rgba(255, 255, 255, 0.15);
+    
+    --primary-red: #FF2E4C;
+    --primary-red-glow: rgba(255, 46, 76, 0.4);
+    
+    --accent-blue: #00E5FF;
+    --accent-green: #25D366;
+    --accent-green-glow: rgba(37, 211, 102, 0.4);
+    
+    --text-white: #FFFFFF;
+    --text-muted: #94A3B8;
+    --nav-bg: rgba(11, 14, 20, 0.85);
+    --bg-overlay-opacity: 0.12;
+
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* TEMA CLARO */
+body.light-theme {
+    --bg-main: #F1F5F9;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(0, 0, 0, 0.12);
+    
+    --text-white: #0F172A;
+    --text-muted: #475569;
+    --nav-bg: rgba(241, 245, 249, 0.88);
+    --bg-overlay-opacity: 0.08;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 2rem;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ==========================================================================
+   FONDO DE PANTALLA
+   ========================================================================== */
+.bg-bike-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('EMPIRE.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: var(--bg-overlay-opacity);
+    filter: blur(4px) grayscale(20%);
+    z-index: -2;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.bg-gradient-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 46, 76, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 229, 255, 0.15) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Componente Glassmorphism Base */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+/* ==========================================================================
+   NAVEGACIÓN CON INTERRUPTOR DE TEMA Y NUEVOS BOTONES
+   ========================================================================== */
+.navbar {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+    transition: background 0.4s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.brand-logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: 1px;
+}
+
+.brand-logo i {
+    color: var(--primary-red);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--card-border);
+    color: var(--text-white);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+}
+
+body.light-theme .nav-btn {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.nav-btn:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    color: #FFF;
+}
+
+.theme-btn {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* ==========================================================================
+   HERO / ENCABEZADO CON IMAGEN PRINCIPAL
+   ========================================================================== */
+.hero-container {
+    max-width: 800px;
+    margin: 3rem auto 2rem;
+    padding: 0 1.5rem;
+}
+
+.hero-card {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.badge-container {
+    margin-bottom: 1.5rem;
+}
+
+.neon-badge {
+    background: rgba(255, 46, 76, 0.15);
+    border: 1px solid var(--primary-red);
+    color: var(--primary-red);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px var(--primary-red-glow);
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-text {
+    color: var(--primary-red);
+    text-shadow: 0 0 20px var(--primary-red-glow);
+}
+
+/* Imagen en el Encabezado Hero */
+.hero-bike-header-image {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto 2rem;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 2px solid var(--card-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-bike-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.hero-bike-header-image:hover .hero-bike-img {
+    transform: scale(1.04);
+}
+
+.hero-description {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+}
+
+/* Ticket Virtual Box */
+.ticket-neon-box {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px dashed var(--card-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.luck-tag {
+    color: var(--accent-blue);
+}
+
+.ticket-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.price-tag small {
+    color: var(--text-muted);
+    display: block;
+    font-size: 0.8rem;
+}
+
+.price-tag h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--text-white);
+}
+
+.price-tag .currency {
+    font-size: 1rem;
+    color: var(--primary-red);
+}
+
+.draw-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+}
+
+.draw-info p strong {
+    color: var(--text-white);
+}
+
+/* Botones de Acción y Grupos */
+.action-buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-whatsapp-glow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    background: var(--accent-green);
+    color: #000;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 1.1rem;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 25px var(--accent-green-glow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-whatsapp-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 35px var(--accent-green-glow);
+}
+
+.btn-whatsapp-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    background: transparent;
+    border: 2px solid var(--accent-green);
+    color: var(--accent-green);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.9rem;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp-outline:hover {
+    background: rgba(37, 211, 102, 0.15);
+}
+
+.btn-secondary-glow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--card-border);
+    color: var(--text-white);
+    font-weight: 700;
+    padding: 0.9rem 1.8rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-glow:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--text-white);
+}
+
+/* ==========================================================================
+   FORMULARIO VERIFICADOR DE TICKET
+   ========================================================================== */
+.checker-section, .bike-details-section, .motivation-section, .links-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.checker-card, .quote-card {
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.ticket-search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--card-border);
+    border-radius: 16px;
+    padding: 0.5rem 1.2rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-container:focus-within {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+}
+
+.input-prefix {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--primary-red);
+    margin-right: 0.5rem;
+    font-weight: 800;
+}
+
+.ticket-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-white);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.search-btn {
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+/* ==========================================================================
+   TARJETA OFICIAL MOTOCICLETA
+   ========================================================================== */
+.bike-official-card {
+    text-align: left;
+    padding: 0 0 2.5rem 0;
+}
+
+.bike-image-container {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.bike-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.bike-official-card:hover .bike-image {
+    transform: scale(1.03);
+}
+
+.bike-card-header {
+    padding: 2rem 2rem 1rem 2rem;
+}
+
+.official-badge {
+    display: inline-block;
+    background: rgba(0, 229, 255, 0.1);
+    color: var(--accent-blue);
+    border: 1px solid var(--accent-blue);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.bike-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-white);
+    margin-bottom: 0.4rem;
+}
+
+.bike-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.bike-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+}
+
+.spec-item {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--card-border);
+    padding: 1rem;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.spec-icon {
+    font-size: 1.5rem;
+    color: var(--primary-red);
+}
+
+.spec-item h4 {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.spec-item p {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.flex-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+
+/* ==========================================================================
+   FOOTER Y OTROS
+   ========================================================================== */
+.quote-icon {
+    font-size: 2rem;
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+}
+
+.quote-card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.quote-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
+}
+
+.links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+}
+
+.link-box {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-white);
+    transition: transform 0.2s ease;
+}
+
+.link-box:hover {
+    transform: translateY(-3px);
+}
+
+.link-icon {
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+}
+
+.link-box h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+}
+
+.link-box p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.footer {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.personal-motto {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.divider {
+    height: 1px;
+    background: var(--card-border);
+    margin: 1.5rem auto;
+    width: 60%;
+}
+
+.manager-info, .copyright {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    .ticket-body {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-container {
+        justify-content: center;
+    }
+}
